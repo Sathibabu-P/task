@@ -1,0 +1,9 @@
+<h1>Editing User Profile</h1>
+<%= form_for @profile,:url => {:action => "update"},:multipart => true  do |form| %>
+
+<%= render partial: "form", locals: {f: form} %>
+<% end %>
+
+<%= link_to 'Back', @user,:class => "btn btn-default" %>
+<br>
+<br>

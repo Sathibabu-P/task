@@ -1,0 +1,32 @@
+
+
+<h1>Listing Users</h1>
+<div class="table-responsive">
+<table class="table table-hover">  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to "#{user.username}", user%></td>
+        <td><%= user.email %></td>
+        <td>
+        <%= link_to 'Edit', edit_user_path(user), {:class => "btn btn-success icon-search"} %>
+        <%= link_to 'Delete', user, :class => 'btn btn-danger icon-search', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div>
+
+<br>
+
+ <%= link_to(new_user_path, :class => 'btn btn-primary') do %>
+          New User <span class="icon-search"></span>
+      <% end %>     
+ 

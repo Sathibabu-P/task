@@ -1,0 +1,65 @@
+<div class="container-fluid">
+
+<h2>User  Profile</h2>
+<% if @user.profile.present? %> 
+<p>
+  <strong>First Name:</strong>
+  <%= @user.profile.fname %>
+</p>
+<p>
+  <strong>Last Name:</strong>
+  <%= @user.profile.lname %>
+</p>
+ <p>
+ <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+<p>
+ <strong>Profile Picture:</strong>
+  <%= image_tag @user.profile.pic.url(:thumb) %>
+</p>
+ 
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+<p>
+  <strong>Phone No:</strong>
+  <%= @user.profile.phoneno %>
+</p>
+<p>
+  <strong>Date Of Birth:</strong>
+  <%= @user.profile.dob %>
+</p>
+<p>
+  <strong>Age:</strong>
+  <%= time_ago_in_words(@user.profile.dob) %>
+</p>
+<p>
+  <strong>Gender:</strong>
+  <%= @user.profile.gender %>
+</p>
+<p>
+  <strong>Likes:</strong>
+  <%= @user.profile.likes %>
+</p>
+<p>
+  <strong>Address:</strong>
+  <%= @user.profile.address %>
+</p>
+<%= link_to 'Edit Profile', edit_profile_path,:class => "btn btn-primary" %>
+  <% else  %>
+   <p>
+ <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+  <p>No Profile is set <%= link_to 'Click to Set Profile', new_profile_path(:uid => @user.id) %></p>
+
+
+ <% end  %>
+<%= link_to 'Back', users_path,:class => "btn btn-default" %>
+</div>

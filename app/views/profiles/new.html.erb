@@ -1,0 +1,8 @@
+<h1>New Profile</h1>
+<%= form_for @profile,:url => {:action => "create", :uid =>@user.id},:multipart => true  do |form| %>
+
+<%= render partial: "form", locals: {f: form} %>
+
+
+<%= link_to 'Back', @user,:class => "btn btn-default" %>
+<% end %>

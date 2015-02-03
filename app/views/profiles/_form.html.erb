@@ -1,0 +1,62 @@
+   <% if @profile.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger alert-dismissable">
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :fname, 'First Name' %><br>
+    <%= f.text_field :fname,:class =>"form-control" %>
+  </div>
+    <div class="form-group">
+    <%= f.label :lname, 'Last Name' %><br>
+    <%= f.text_field :lname,:class =>"form-control" %>
+  </div>
+  
+   <div class="form-group">
+    <%= f.label :phoneno %><br>
+    <%= f.telephone_field :phoneno,:class =>"form-control" %>
+  </div>
+   <div class="form-group">
+    <%= f.label :password %><br>
+    <%= f.text_field :password,:class =>"form-control" %>
+  </div>
+    <div class="form-group">
+   <p><label for="upload_file">Upload Image</label> : 
+   <%= f.file_field :pic  %></p>
+  </div>
+
+   <div class="form-group">
+    <%= f.label :gender %><br>
+    <%= f.radio_button :gender, "male" %>Male
+    <%= f.radio_button :gender, "female" %>Female
+  </div>
+  <div class="form-group">
+    <%= f.label :dob, "Data Of Birth" %><br>
+    <%= f.date_select :dob,:class =>"form-control"%>
+  </div>
+  
+    <div class="form-group">
+   
+    <%= f.label :likes, 'Likes' %><br>
+    <%= f.check_box :likes, :value => "cricket"   %>Cricket
+    <%= f.check_box :likes, :value => "hockey"  %>Hockey
+    <%= f.check_box :likes, :value => "tennis"  %>Tennis
+  </div>
+
+
+   <div class="form-group">
+    <%= f.label :address %><br>
+    <%= f.text_area :address, size: "40x10",:class =>"form-control"  %>
+  </div>
+
+ <div class="form-actions">
+    <%= f.submit :class => "btn btn-success"%>
+  </div>
+
