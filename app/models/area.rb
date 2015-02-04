@@ -9,6 +9,12 @@ class Area < ActiveRecord::Base
 	          :presence => true,	         
 	          :uniqueness => {:message => "Position already exists!"}
 
+	def self.search(search)
+	  if search
+	    self.where(areaname: "#{search}").take	 
+	  end
+	end 
+
 	private
 
 	def captlize_name

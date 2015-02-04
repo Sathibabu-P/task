@@ -1,5 +1,20 @@
 <h1>Listings</h1>
+<div class="container ">
+  
+ <%= form_tag listings_path, :method => 'get', :class=>"form-inline pull-right" do %>
+ <p>
+   <div class="form-group">
+    <%= text_field_tag :search, params[:search],:class =>"form-control" %>
+    </div>
+    <%= submit_tag "Search by Area", :name => nil,:class=>"btn btn-warning" %>
+  </p>
+<% end %> 
+
+</div>
 <div class="table-responsive">
+ <% if @listings.blank? %>
+ <h3>No Results for Search</h3>
+ <% else %> 
 <table class="table table-hover">  <thead>
     <tr>
       <th>Listing Name</th>
@@ -16,18 +31,27 @@
         <td><%= listing.area.areaname %></td>
         <td><%= listing.category.categoryname if listing.category.present? %></td>
         <td>
-       <%= link_to 'Show', listing, {:class => "btn btn-primary icon-search"} %>
-        <%= link_to 'Edit', edit_listing_path(listing), {:class => "btn btn-success icon-search"} %>
-        <%= link_to 'Delete', listing, :class => 'btn btn-danger icon-search', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%= link_to listing, class: "btn btn-primary" do %>
+              <i class="glyphicon glyphicon-eye-open"></i>
+           <% end %>
+           <%= link_to edit_listing_path(listing), class: "btn btn-success" do %>
+              <i class="glyphicon glyphicon-edit"></i>
+           <% end %>
+           <%= link_to listing, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="glyphicon glyphicon-trash"></i>
+           <% end %>  
+</td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<% end %> 
 <div>
 
 <br>
+<%= link_to new_listing_path, class: "btn btn-primary" do %>
+              <i class="glyphicon glyphicon-plus"></i>
+           <% end %> 
 
- <%= link_to(new_listing_path, :class => 'btn btn-primary') do %>
-          New Listing <span class="icon-search"></span>
-      <% end %>     
+   
  

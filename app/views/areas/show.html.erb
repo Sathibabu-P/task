@@ -3,6 +3,10 @@
 <h2> <%= @area.areaname %> Listings</h2>
 
 <div class="table-responsive">
+  <% if @area.listings.blank? %>
+ <p>No more listings belongs to this area</p>
+  <p>Click Plus to add Listings....</p>
+ <% else %> 
 <table class="table table-hover">  <thead>
     <tr>
       <th>Listing Name</th>
@@ -18,16 +22,23 @@
         <td><%= listing.listingname %></td> 
         <td><%= @area.areaname %></td>      
         <td><%= listing.category.categoryname if listing.category.present? %></td>
-        <td>
-      
-        <%= link_to 'Edit', edit_listing_path(listing,:aid => @area.id), {:class => "btn btn-success icon-search"} %>
-        <%= link_to 'Delete', listing, :class => 'btn btn-danger icon-search', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>  
+        <%= link_to edit_listing_path(listing,:aid => @area.id), class: "btn btn-primary" do %>
+              <i class="glyphicon glyphicon-edit"></i>
+           <% end %>
+           <%= link_to listing_path(listing,:aid => @area.id), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="glyphicon glyphicon-trash"></i>
+              <% end %>     
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<% end %>
 <div>
-
-<%= link_to 'New Listing', new_listing_path({:aid => @area.id}),:class => "btn btn-primary" %>
-<%= link_to 'Back', areas_path,:class => "btn btn-default" %>
-</div>
+<%= link_to new_listing_path({:aid => @area.id}), class: "btn btn-primary" do %>
+    <i class="glyphicon glyphicon-plus"></i>
+<% end %>
+<%= link_to areas_path, class: "btn btn-default" do %>
+    <i class="glyphicon glyphicon-arrow-left"></i>
+<% end %>

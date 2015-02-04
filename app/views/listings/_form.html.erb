@@ -22,13 +22,13 @@
    <div class="form-group">
    <%= f.label :area_id, "Select Area" %><br>
    <%= collection_select(:listing, :area_id, Area.all, :id, :areaname, {prompt: true},:class =>"form-control") %>  
-
   </div>
-  <% end %>
+  <% end %> <% if !@category %>
   <div class="form-group">
   <%= f.label :category_id, "Select Category" %><br>
   <%= collection_select(:listing, :category_id, Category.all, :id, :categoryname, {prompt: true},:class =>"form-control") %>     
   </div>
+  <% end %>
    <div class="form-group">
   <%= f.label :price %><br>
   <%= f.text_field :price,:class =>"form-control" %>  
@@ -38,6 +38,7 @@
   <%= f.text_area :contactinfo,:class =>"form-control" %>  
   </div>
    <%= f.hidden_field :hidden_area_id, :value => "#{@area.id}" if @area %> 
+   <%= f.hidden_field :hidden_category_id, :value => "#{@category.id}" if @category %> 
   <div class="form-group">
     <%= f.submit :class => "btn btn-success"%>
   </div>

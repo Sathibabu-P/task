@@ -2,10 +2,10 @@
 
 <%= render 'form' %>
 
-
-
-<% if params[:aid] %>
-<%= link_to 'Back',  area=Area.find(params[:aid]) %>
+<% if @area %>
+<%= link_to 'Back',  @area %>
+<% elsif @category %>
+<%= link_to 'Back',  @category %>
 <% else %>
 <%= link_to 'Back', listings_path %>
 <% end %>

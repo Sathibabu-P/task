@@ -3,6 +3,7 @@
 <table class="table table-hover">  <thead>
     <tr>
       <th>Areaname</th>
+      <th>ListingsCount</th>
       <th>Position</th>
       <th colspan="3"></th>
     </tr>
@@ -12,10 +13,15 @@
     <% @areas.each do |area| %>
       <tr>
         <td><%= link_to "#{area.areaname}", area %></td>
+        <td><%= area.listings.size if area.listings %></td>
         <td><%= area.position %></td>
         <td>
-        <%= link_to 'Edit', edit_area_path(area), {:class => "btn btn-success icon-search"} %>
-        <%= link_to 'Delete', area, :class => 'btn btn-danger icon-search', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+           <%= link_to edit_area_path(area), class: "btn btn-primary" do %>
+              <i class="glyphicon glyphicon-edit"></i>
+           <% end %>
+           <%= link_to area, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="glyphicon glyphicon-trash"></i>
+           <% end %>       
       </tr>
     <% end %>
   </tbody>
@@ -23,8 +29,7 @@
 <div>
 
 <br>
-
- <%= link_to(new_area_path, :class => 'btn btn-primary') do %>
-          New Area <span class="icon-search"></span>
-      <% end %>     
  
+   <%= link_to new_area_path, class: "btn btn-primary" do %>
+    <i class="glyphicon glyphicon-plus"></i>
+<% end %>

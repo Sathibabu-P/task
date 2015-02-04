@@ -3,6 +3,7 @@
 <table class="table table-hover">  <thead>
     <tr>
       <th>CategoryName</th>
+       <th>ListingsCount</th>
       <th>Position</th>
       <th colspan="3"></th>
     </tr>
@@ -12,6 +13,7 @@
     <% @categories.each do |category| %>
       <tr>
         <td><%= link_to "#{category.categoryname}", category%></td>
+        <td><%= category.listings.size if category.listings %></td>
         <td><%= category.position %></td>
         <td>
         <%= link_to 'Edit', edit_category_path(category), {:class => "btn btn-success icon-search"} %>
