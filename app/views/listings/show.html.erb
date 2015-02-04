@@ -1,0 +1,28 @@
+<div class="container-fluid">
+
+<h2>Listing</h2>
+
+<p>
+  <strong>Listing Name:</strong>
+  <%= @listing.listingname %>
+</p>
+<p>
+  <strong>Area:</strong>
+  <%= @listing.area.areaname %>
+</p>
+<p>
+  <strong>Category:</strong>
+  <%= @listing.category.categoryname if @listing.category.present? %>
+</p>
+<p>
+  <strong>Price:</strong>
+  <%= number_to_currency(@listing.price, unit: 'rs',format: '%n%u') %>
+</p>
+<p>
+  <strong>Contact Info:</strong>
+  <%= @listing.contactinfo %>
+</p>
+
+<%= link_to 'Edit', edit_listing_path,:class => "btn btn-default" %>
+<%= link_to 'Back', listings_path,:class => "btn btn-default" %>
+</div>

@@ -1,0 +1,33 @@
+<div class="container-fluid">
+
+<h2> <%= @area.areaname %> Listings</h2>
+
+<div class="table-responsive">
+<table class="table table-hover">  <thead>
+    <tr>
+      <th>Listing Name</th>
+     <th>Area Name</th>
+     <th>Category Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @area.listings.each do |listing| %>
+      <tr>
+        <td><%= listing.listingname %></td> 
+        <td><%= @area.areaname %></td>      
+        <td><%= listing.category.categoryname if listing.category.present? %></td>
+        <td>
+      
+        <%= link_to 'Edit', edit_listing_path(listing,:aid => @area.id), {:class => "btn btn-success icon-search"} %>
+        <%= link_to 'Delete', listing, :class => 'btn btn-danger icon-search', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div>
+
+<%= link_to 'New Listing', new_listing_path({:aid => @area.id}),:class => "btn btn-primary" %>
+<%= link_to 'Back', areas_path,:class => "btn btn-default" %>
+</div>

@@ -1,0 +1,44 @@
+<%= form_for @listing   do |f| %>
+  <% if @listing.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger alert-dismissable">
+      <h2><%= pluralize(@listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+
+      <ul>
+      <% @listing.errors.full_messages.each do |message| %>
+     
+        <li><%= message %></li>
+       
+      <% end %>
+      </ul>
+    </div>
+      
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :listingname %><br>
+    <%= f.text_field :listingname,:class =>"form-control" %>
+  </div>
+  <% if !@area %>
+   <div class="form-group">
+   <%= f.label :area_id, "Select Area" %><br>
+   <%= collection_select(:listing, :area_id, Area.all, :id, :areaname, {prompt: true},:class =>"form-control") %>  
+
+  </div>
+  <% end %>
+  <div class="form-group">
+  <%= f.label :category_id, "Select Category" %><br>
+  <%= collection_select(:listing, :category_id, Category.all, :id, :categoryname, {prompt: true},:class =>"form-control") %>     
+  </div>
+   <div class="form-group">
+  <%= f.label :price %><br>
+  <%= f.text_field :price,:class =>"form-control" %>  
+  </div>
+   <div class="form-group">
+  <%= f.label :contactinfo, "Contact Info" %><br>
+  <%= f.text_area :contactinfo,:class =>"form-control" %>  
+  </div>
+   <%= f.hidden_field :hidden_area_id, :value => "#{@area.id}" if @area %> 
+  <div class="form-group">
+    <%= f.submit :class => "btn btn-success"%>
+  </div>
+<% end %>

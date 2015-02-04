@@ -27,12 +27,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to "Project name", "#", :class => "navbar-brand" %>
+        <%= link_to "My App", "#", :class => "navbar-brand" %>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><%= link_to 'Users',{:controller => 'users' ,:action => 'index'} %></li>          
-          <li><a href="#contact">Contact</a></li>
+          <li class="active"><%= link_to 'Users',{:controller => 'users' ,:action => 'index'} %></li> 
+          <li><%= link_to 'Areas',{:controller => 'areas' ,:action => 'index'} %></li>
+          <li><%= link_to 'Categories',{:controller => 'categories' ,:action => 'index'} %></li> 
+          <li><%= link_to 'Listings',{:controller => 'listings' ,:action => 'index'} %></li>         
+         
         </ul>
       </div>
     </div>

@@ -1,0 +1,11 @@
+<h1>Editing Listing</h1>
+
+<%= render 'form' %>
+
+
+
+<% if params[:aid] %>
+<%= link_to 'Back',  area=Area.find(params[:aid]) %>
+<% else %>
+<%= link_to 'Back', listings_path %>
+<% end %>

@@ -1,0 +1,30 @@
+<h1>Listing Categories</h1>
+<div class="table-responsive">
+<table class="table table-hover">  <thead>
+    <tr>
+      <th>CategoryName</th>
+      <th>Position</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= link_to "#{category.categoryname}", category%></td>
+        <td><%= category.position %></td>
+        <td>
+        <%= link_to 'Edit', edit_category_path(category), {:class => "btn btn-success icon-search"} %>
+        <%= link_to 'Delete', category, :class => 'btn btn-danger icon-search', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div>
+
+<br>
+
+ <%= link_to(new_category_path, :class => 'btn btn-primary') do %>
+          New category <span class="icon-search"></span>
+      <% end %>     
+ 

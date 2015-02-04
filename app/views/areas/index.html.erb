@@ -1,0 +1,30 @@
+<h1>Listing Areas</h1>
+<div class="table-responsive">
+<table class="table table-hover">  <thead>
+    <tr>
+      <th>Areaname</th>
+      <th>Position</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @areas.each do |area| %>
+      <tr>
+        <td><%= link_to "#{area.areaname}", area %></td>
+        <td><%= area.position %></td>
+        <td>
+        <%= link_to 'Edit', edit_area_path(area), {:class => "btn btn-success icon-search"} %>
+        <%= link_to 'Delete', area, :class => 'btn btn-danger icon-search', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div>
+
+<br>
+
+ <%= link_to(new_area_path, :class => 'btn btn-primary') do %>
+          New Area <span class="icon-search"></span>
+      <% end %>     
+ 

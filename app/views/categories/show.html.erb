@@ -1,0 +1,16 @@
+<div class="container-fluid">
+
+<h2>Category</h2>
+
+<p>
+  <strong>Area Name:</strong>
+  <%= @category.categoryname %>
+</p>
+<p>
+  <strong>Position:</strong>
+  <%= @category.position %>
+</p>
+ <p>
+<%= link_to 'Edit', edit_category_path,:class => "btn btn-default" %>
+<%= link_to 'Back', categories_path,:class => "btn btn-default" %>
+</div>
