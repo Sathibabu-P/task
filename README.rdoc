@@ -1,28 +1,17 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is simple rails application for all types of Associations.
+It covers all Association type
+=> one -to- one
+=> one -to- many
+=> many -to- many
 
-Things you may want to cover:
+This application helpful for beggners on Ruby On Rails 
 
-* Ruby version
+Features 
++ Simple Flow
++ Complete descrption for all Utilities
++ Bootstrap integration
++ Simple form integration
++ simple search box method
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
