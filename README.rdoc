@@ -2,16 +2,16 @@
 
 This is simple rails application for all types of Associations.
 It covers all Association type
-=> one -to- one
-=> one -to- many
-=> many -to- many
++ one -to- one
++ one -to- many
++ many -to- many
 
 This application helpful for beggners on Ruby On Rails 
 
-Features 
-+ Simple Flow
-+ Complete descrption for all Utilities
-+ Bootstrap integration
-+ Simple form integration
-+ simple search box method
+=> Features 
+## Simple Flow
+## Complete descrption for all Utilities
+## Bootstrap integration
+## Simple form integration
+## simple search box method
 
