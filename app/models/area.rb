@@ -1,4 +1,4 @@
-class Area < ActiveRecord::Base
+class Area < ActiveRecord::Base	
 	has_many :listings, dependent: :destroy
 	before_validation :captlize_name, on: [ :create, :update ]
 	validates :areaname, 

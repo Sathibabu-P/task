@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150203055820) do
+ActiveRecord::Schema.define(version: 20150205112535) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "areaname",   limit: 255
@@ -27,6 +27,18 @@ ActiveRecord::Schema.define(version: 20150203055820) do
     t.datetime "updated_at",                              null: false
   end
 
+  create_table "clients", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.text     "contactinfo", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "clients_listings", force: :cascade do |t|
+    t.integer "listing_id", limit: 4
+    t.integer "client_id",  limit: 4
+  end
+
   create_table "listings", force: :cascade do |t|
     t.string   "listingname", limit: 255
     t.integer  "area_id",     limit: 4
@@ -40,6 +52,7 @@ ActiveRecord::Schema.define(version: 20150203055820) do
   create_table "profiles", force: :cascade do |t|
     t.string   "fname",            limit: 50,                   null: false
     t.string   "lname",            limit: 50
+    t.string   "email",            limit: 255,                  null: false
     t.string   "password",         limit: 255
     t.decimal  "phoneno",                        precision: 10
     t.date     "dob"

@@ -1,7 +1,8 @@
 class Listing < ActiveRecord::Base
-	attr_accessor :hidden_area_id,:hidden_category_id
+	attr_accessor :hidden_area_id,:hidden_category_id,:search
 	belongs_to :area
 	belongs_to :category
+	has_and_belongs_to_many :clients
 	before_validation :captlize_name, on: [ :create, :update ]
 	before_validation :set_area,:set_category	
 	validates :listingname, 

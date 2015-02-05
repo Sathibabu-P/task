@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+ 
   before_action :get_listing, only: [:show,:edit,:update,:destroy]
   before_action :set_area,:set_category, only:[:create,:update]
   before_action :get_area, :get_category
@@ -7,6 +8,7 @@ class ListingsController < ApplicationController
      @listings = Listing.search(@area)
      @listings = [] if @area.blank? && params[:search]
      @listings = Listing.all if params[:search].blank?
+     @listing= Listing.new
   end
 
   def new   

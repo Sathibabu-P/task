@@ -2,8 +2,7 @@ class CreateProfiles < ActiveRecord::Migration
   def up
     create_table :profiles do |t|
       t.string :fname, :limit => 50, null: false
-      t.string :lname, :limit => 50, null: true
-      t.string :email, null: false
+      t.string :lname, :limit => 50, null: true      
       t.string :password
       t.decimal :phoneno
       t.date :dob
